@@ -1,89 +1,81 @@
 local UEHelpers = require("UEHelpers")
+local console = require("OBRConsole")
 
--- Configuration
 local SKELETON_KEY_FORM_ID = "0000000B"
+local LOCKPICK_SETTING_ID = "fLockPickAutoBase"
 local AUTO_LOCKPICK_VALUE = 100.0
+local DEFAULT_LOCKPICK_VALUE = 45.0
 
--- Helper functions
 local function log(message)
     print("[SkeletonKeyMod] " .. message .. "\n")
 end
 
--- Wait for a specific object to become available
-local function WaitForObject(className)
-    local object = nil
-    while not object or not object:IsValid() do
-        object = FindFirstOf(className)
-    end
-    return object
+local function setAutoLockpickValue(value)
+    console.ExecuteConsole("setGS " .. LOCKPICK_SETTING_ID .. " " .. value)
+    log("Successfully set auto lockpick value to " .. value)
 end
 
--- Check if player has the Skeleton Key in inventory
-local function PlayerHasSkeletonKey(player)
-    if not player or not player:IsValid() then
-        return false
+local function getLockpickValue()
+    local value = console.GetGS(LOCKPICK_SETTING_ID)
+    if value == nil then
+        log("Failed to get lockpick value")
+        return nil
     end
-    
-    -- Access inventory component
-    local inventoryComponent = player.InventoryComponent
-    if not inventoryComponent or not inventoryComponent:IsValid() then
-        log("Inventory component not found or invalid")
-        return false
-    end
-    
-    -- Check for Skeleton Key by form ID
-    local hasKey = inventoryComponent:HasItem(SKELETON_KEY_FORM_ID)
-    return hasKey
+    return tonumber(value)
 end
 
--- Update the lockpick auto-success value
-local function UpdateLockpickSettings()
-    -- Find the game settings
-    local gameSettings = StaticFindObject("/Script/UE5AltarPairing.Default__VOblivionInitialSettings")
-    if not gameSettings or not gameSettings:IsValid() then
-        log("Failed to find game settings")
-        return
+local function isSkeletonKeyEquipped()
+    local player = UEHelpers.GetPlayer()
+    if player == nil then
+        log("Failed to get player reference")
+        return false
     end
-    
-    -- Get player character
-    local playerCharacter = UEHelpers.GetPlayer()
-    if not playerCharacter or not playerCharacter:IsValid() then
-        log("Player character not found or invalid")
-        return
+
+    local inventory = player:GetInventory()
+    if inventory == nil then
+        log("Failed to get player inventory")
+        return false
     end
-    
-    -- Check if player has Skeleton Key and update setting accordingly
-    if PlayerHasSkeletonKey(playerCharacter) then
-        log("Skeleton Key found in inventory, setting auto lockpick to " .. AUTO_LOCKPICK_VALUE)
-        gameSettings:SetPropertyValue("fLockPickAutoBase", AUTO_LOCKPICK_VALUE)
+
+    local skeletonKey = inventory:FindItem(SKELETON_KEY_FORM_ID)
+    return skeletonKey ~= nil
+end
+
+local function parseLockpickValue()
+    if isSkeletonKeyEquipped() then
+        local currentValue = getLockpickValue()
+        if currentValue == nil then
+            return false
+        end
+
+        if currentValue ~= AUTO_LOCKPICK_VALUE then
+            setAutoLockpickValue(AUTO_LOCKPICK_VALUE)
+            return true
+        end
     else
-        -- Reset to default value when key not in inventory
-        -- This assumes the default is 20.0, adjust if necessary
-        gameSettings:SetPropertyValue("fLockPickAutoBase", 20.0)
+        local currentValue = getLockpickValue()
+        if currentValue == nil then
+            return false
+        end
+
+        if currentValue ~= DEFAULT_LOCKPICK_VALUE then
+            setAutoLockpickValue(DEFAULT_LOCKPICK_VALUE)
+            return true
+        end
     end
+
+    return true
 end
 
--- Initialize the mod
-log("Skeleton Key Auto-Lockpick mod initialized")
-
--- Check for Skeleton Key periodically
-LoopAsync(1000, function()
-    UpdateLockpickSettings()
+RegisterHook("/Script/Altar.VMainMenuViewModel:LoadInstanceOfLevels", function()
+    parseLockpickValue()
 end)
 
--- Also check when player opens a lock
-RegisterHook("/Script/Altar.VLockpickSubsystem:OnLockpickOpen", function(Context)
-    log("Lockpick interface opened, checking for Skeleton Key")
-    UpdateLockpickSettings()
+local settingsApplied = false
+LoopAsync(5000, function()
+    if not settingsApplied then
+        settingsApplied = parseLockpickValue()
+    end
 end)
 
--- Check when player's inventory changes
-RegisterHook("/Script/Altar.VInventoryComponent:AddItemToInventory", function(Context)
-    log("Inventory changed, checking for Skeleton Key")
-    UpdateLockpickSettings()
-end)
-
-RegisterHook("/Script/Altar.VInventoryComponent:RemoveItemFromInventory", function(Context)
-    log("Inventory changed, checking for Skeleton Key")
-    UpdateLockpickSettings()
-end)
+log("Auto-Lockpick mod loaded")
