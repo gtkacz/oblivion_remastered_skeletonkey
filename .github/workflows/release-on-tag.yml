@@ -1,0 +1,40 @@
+name: Release on Tag
+
+on:
+  push:
+    tags:
+      - "*" # any tag push will trigger this workflow :contentReference[oaicite:0]{index=0}
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run release script
+        run: |
+          chmod +x ./make_release.sh
+          ./make_release.sh
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false  :contentReference[oaicite:1]{index=1}
+
+      - name: Upload release.zip asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./release.zip
+          asset_name: release.zip
+          asset_content_type: application/zip  :contentReference[oaicite:2]{index=2}
