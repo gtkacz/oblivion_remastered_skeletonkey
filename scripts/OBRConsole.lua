@@ -7,7 +7,8 @@ function C.ExecuteConsole(command)
   ExecuteInGameThread(function() 
     if command ~= '' then
         if playerController:IsValid() then
-            KismetSystemLibrary:ExecuteConsoleCommand(playerController.player, command, playerController)
+            local value = KismetSystemLibrary:ExecuteConsoleCommand(playerController.player, command, playerController)
+            return value
         else
           print("[LuaConsoleMod]playerController invalid")
         end

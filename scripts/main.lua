@@ -16,7 +16,7 @@ local function setAutoLockpickValue(value)
 end
 
 local function getLockpickValue()
-    local value = console.GetGS(LOCKPICK_SETTING_ID)
+    local value = console.ExecuteConsole("getGS " .. LOCKPICK_SETTING_ID)
     if value == nil then
         log("Failed to get lockpick value")
         return nil
@@ -25,20 +25,12 @@ local function getLockpickValue()
 end
 
 local function isSkeletonKeyEquipped()
-    local player = UEHelpers.GetPlayer()
-    if player == nil then
-        log("Failed to get player reference")
-        return false
+    local value = console.ExecuteConsole("player.getItemCount " .. SKELETON_KEY_FORM_ID)
+    if value == nil then
+        log("Failed to get skeleton key count")
+        return nil
     end
-
-    local inventory = player:GetInventory()
-    if inventory == nil then
-        log("Failed to get player inventory")
-        return false
-    end
-
-    local skeletonKey = inventory:FindItem(SKELETON_KEY_FORM_ID)
-    return skeletonKey ~= nil
+    return tonumber(value) > 0
 end
 
 local function parseLockpickValue()
@@ -67,15 +59,11 @@ local function parseLockpickValue()
     return true
 end
 
-RegisterHook("/Script/Altar.VMainMenuViewModel:LoadInstanceOfLevels", function()
-    parseLockpickValue()
+RegisterHook("/Script/Altar.VLevelChangeData:OnFadeToGameBeginEventReceived", function(Context)
+    log("Game started, applying auto-lockpick settings")
+    ExecuteInGameThread(function()
+        parseLockpickValue()
+    end)
 end)
 
-local settingsApplied = false
-LoopAsync(5000, function()
-    if not settingsApplied then
-        settingsApplied = parseLockpickValue()
-    end
-end)
-
-log("Auto-Lockpick mod loaded")
+log("Mod loaded")
