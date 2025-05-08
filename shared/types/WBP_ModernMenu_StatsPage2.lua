@@ -1,0 +1,47 @@
+---@meta
+
+---@class UWBP_ModernMenu_StatsPage2_C : UVLegacyStatsMenuPage2
+---@field UberGraphFrame FPointerToUberGraphFrame
+---@field VStatsMenuViewModel UVStatsMenuViewModel
+---@field StatsPage2FadeInOut UWidgetAnimation
+---@field stat_p2_agility UWBP_ModernMenu_StatsSecondaryAttribute_C
+---@field stat_p2_details UWBP_ModernMenu_StatsPage2_Details_C
+---@field stat_p2_endurance UWBP_ModernMenu_StatsSecondaryAttribute_C
+---@field stat_p2_intelligence UWBP_ModernMenu_StatsSecondaryAttribute_C
+---@field stat_p2_luck UWBP_ModernMenu_StatsSecondaryAttribute_C
+---@field stat_p2_personality UWBP_ModernMenu_StatsSecondaryAttribute_C
+---@field stat_p2_speed UWBP_ModernMenu_StatsSecondaryAttribute_C
+---@field stat_p2_strength UWBP_ModernMenu_StatsSecondaryAttribute_C
+---@field stat_p2_willpower UWBP_ModernMenu_StatsSecondaryAttribute_C
+---@field DoPlayAnimation boolean
+local UWBP_ModernMenu_StatsPage2_C = {}
+
+---@return UWidget
+function UWBP_ModernMenu_StatsPage2_C:BP_GetDesiredFocusTarget() end
+---@param Item ELegacyStatsMenuPage2Items
+---@param Return_Value UWBP_ModernMenu_StatsSecondaryAttribute_C
+function UWBP_ModernMenu_StatsPage2_C:GetAttributeWidget(Item, Return_Value) end
+---@param InIsDisplayed boolean
+UWBP_ModernMenu_StatsPage2_C['Set Details State'] = function(self, InIsDisplayed) end
+---@param Content FLegacyStatsMenuPopupContent
+function UWBP_ModernMenu_StatsPage2_C:UpdateDetailsContent(Content) end
+---@param NewAttributes TMap<ELegacyStatsMenuPage2Items, FLegacyStatsMenuSecondaryAttribute>
+UWBP_ModernMenu_StatsPage2_C['Update Attributes'] = function(self, NewAttributes) end
+function UWBP_ModernMenu_StatsPage2_C:OnSynchronizeProperties() end
+---@param Item ELegacyStatsMenuPage2Items
+---@param Value FLegacyStatsMenuSecondaryAttribute
+function UWBP_ModernMenu_StatsPage2_C:UpdateAttribute(Item, Value) end
+function UWBP_ModernMenu_StatsPage2_C:OnFocus() end
+function UWBP_ModernMenu_StatsPage2_C:BndEvt__WBP_ModernMenu_StatsPage2_stat_p2_strength_K2Node_ComponentBoundEvent_0_FocusDispatcher__DelegateSignature() end
+function UWBP_ModernMenu_StatsPage2_C:BndEvt__WBP_ModernMenu_StatsPage2_stat_p2_intelligence_K2Node_ComponentBoundEvent_1_FocusDispatcher__DelegateSignature() end
+function UWBP_ModernMenu_StatsPage2_C:BndEvt__WBP_ModernMenu_StatsPage2_stat_p2_willpower_K2Node_ComponentBoundEvent_2_FocusDispatcher__DelegateSignature() end
+function UWBP_ModernMenu_StatsPage2_C:BndEvt__WBP_ModernMenu_StatsPage2_stat_p2_agility_K2Node_ComponentBoundEvent_3_FocusDispatcher__DelegateSignature() end
+function UWBP_ModernMenu_StatsPage2_C:BndEvt__WBP_ModernMenu_StatsPage2_stat_p2_speed_K2Node_ComponentBoundEvent_4_FocusDispatcher__DelegateSignature() end
+function UWBP_ModernMenu_StatsPage2_C:BndEvt__WBP_ModernMenu_StatsPage2_stat_p2_endurance_K2Node_ComponentBoundEvent_5_FocusDispatcher__DelegateSignature() end
+function UWBP_ModernMenu_StatsPage2_C:BndEvt__WBP_ModernMenu_StatsPage2_stat_p2_personality_K2Node_ComponentBoundEvent_6_FocusDispatcher__DelegateSignature() end
+function UWBP_ModernMenu_StatsPage2_C:BndEvt__WBP_ModernMenu_StatsPage2_stat_p2_luck_K2Node_ComponentBoundEvent_7_FocusDispatcher__DelegateSignature() end
+function UWBP_ModernMenu_StatsPage2_C:BP_OnActivated() end
+---@param EntryPoint int32
+function UWBP_ModernMenu_StatsPage2_C:ExecuteUbergraph_WBP_ModernMenu_StatsPage2(EntryPoint) end
+
+

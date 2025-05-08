@@ -1,0 +1,27 @@
+---@meta
+
+---@class UWBP_Modern_Settings_SystemButtonWrapper_C : UVAltarWidget
+---@field UberGraphFrame FPointerToUberGraphFrame
+---@field SaveLoadButton UWBP_Modern_Settings_SaveLoadButton_C
+---@field Label FText
+---@field OnButtonClicked FWBP_Modern_Settings_SystemButtonWrapper_COnButtonClicked
+---@field OnButtonFocussed FWBP_Modern_Settings_SystemButtonWrapper_COnButtonFocussed
+local UWBP_Modern_Settings_SystemButtonWrapper_C = {}
+
+---@return UWidget
+function UWBP_Modern_Settings_SystemButtonWrapper_C:BP_GetDesiredFocusTarget() end
+---@param NewText FText
+function UWBP_Modern_Settings_SystemButtonWrapper_C:SetButtonText(NewText) end
+function UWBP_Modern_Settings_SystemButtonWrapper_C:OnFocus() end
+function UWBP_Modern_Settings_SystemButtonWrapper_C:Construct() end
+---@param IsDesignTime boolean
+function UWBP_Modern_Settings_SystemButtonWrapper_C:PreConstruct(IsDesignTime) end
+---@param Button UCommonButtonBase
+function UWBP_Modern_Settings_SystemButtonWrapper_C:BndEvt__WBP_Modern_Settings_SaveLoadButtonWrapper_WBP_Modern_Settings_SaveLoadButton_K2Node_ComponentBoundEvent_1_CommonButtonBaseClicked__DelegateSignature(Button) end
+function UWBP_Modern_Settings_SystemButtonWrapper_C:BndEvt__WBP_Modern_Settings_SystemButtonWrapper_SaveLoadButton_K2Node_ComponentBoundEvent_0_OnButtonFocussed__DelegateSignature() end
+---@param EntryPoint int32
+function UWBP_Modern_Settings_SystemButtonWrapper_C:ExecuteUbergraph_WBP_Modern_Settings_SystemButtonWrapper(EntryPoint) end
+function UWBP_Modern_Settings_SystemButtonWrapper_C:OnButtonFocussed__DelegateSignature() end
+function UWBP_Modern_Settings_SystemButtonWrapper_C:OnButtonClicked__DelegateSignature() end
+
+

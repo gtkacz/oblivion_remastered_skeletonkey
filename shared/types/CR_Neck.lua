@@ -1,0 +1,167 @@
+---@meta
+
+---@class UCR_Neck_C : UControlRig
+---@field neckCorrMultU double
+---@field neckCorrMultM double
+---@field neckCorrMultD double
+local UCR_Neck_C = {}
+
+
+
+---@class URigVMMemory_Literal : URigVMMemoryStorage
+---@field RigVMModel___SetCurveValue_1_Curve__Const FName
+---@field RigVMModel___GetTransform_2_1_Item__Const FRigElementKey
+---@field RigVMModel___GetTransform_2_1_Space__Const ERigVMTransformSpace
+---@field RigVMModel___GetTransform_2_1_bInitial__Const boolean
+---@field RigVMModel___GetTransform_1_2_1_bInitial__Const boolean
+---@field RigVMModel___MathFloatRemap_1_SourceMinimum__Const float
+---@field RigVMModel___MathFloatRemap_1_SourceMaximum__Const float
+---@field RigVMModel___MathFloatRemap_1_TargetMaximum__Const float
+---@field RigVMModel___SetCurveValue_Curve__Const FName
+---@field RigVMModel___MathFloatRemap_SourceMaximum__Const float
+---@field RigVMModel___SetCurveValue_2_Curve__Const FName
+---@field RigVMModel___MathFloatRemap_2_SourceMaximum__Const float
+---@field RigVMModel___SetCurveValue_1_1_Curve__Const FName
+---@field RigVMModel___MathFloatRemap_2_3_SourceMaximum__Const float
+---@field RigVMModel___SetCurveValue_2_1_Curve__Const FName
+---@field RigVMModel___MathFloatRemap_2_4_SourceMaximum__Const float
+---@field RigVMModel___SetCurveValue_1_1_1_Curve__Const FName
+---@field RigVMModel___SetCurveValue_1_2_Curve__Const FName
+---@field RigVMModel___GetTransform_2_Item__Const FRigElementKey
+---@field RigVMModel___MathFloatRemap_1_1_SourceMaximum__Const float
+---@field RigVMModel___SetCurveValue_3_Curve__Const FName
+---@field RigVMModel___SetCurveValue_2_2_Curve__Const FName
+---@field RigVMModel___MathFloatRemap_2_2_SourceMaximum__Const float
+---@field RigVMModel___SetCurveValue_1_1_2_Curve__Const FName
+---@field RigVMModel___SetCurveValue_2_1_1_Curve__Const FName
+---@field RigVMModel___MathFloatRemap_2_4_1_SourceMaximum__Const float
+---@field RigVMModel___SetCurveValue_1_1_1_1_Curve__Const FName
+---@field RigVMModel___SetCurveValue_1_2_1_Curve__Const FName
+---@field RigVMModel___GetTransform_Item__Const FRigElementKey
+---@field RigVMModel___SetCurveValue_3_1_Curve__Const FName
+---@field RigVMModel___SetCurveValue_2_2_1_Curve__Const FName
+---@field RigVMModel___SetCurveValue_1_1_2_1_Curve__Const FName
+---@field RigVMModel___SetCurveValue_2_1_1_1_Curve__Const FName
+---@field RigVMModel___SetCurveValue_1_1_1_1_1_Curve__Const FName
+local URigVMMemory_Literal = {}
+
+
+
+---@class URigVMMemory_Work : URigVMMemoryStorage
+---@field RigVMModel___MathFloatMul_Result float
+---@field RigVMModel___MathFloatMul_A float
+---@field RigVMModel___MathFloatRemap_1_Result float
+---@field RigVMModel___MathQuaternionToRotator_Result FRotator
+---@field RigVMModel___MathTransformMakeRelative_Local FTransform
+---@field RigVMModel___GetTransform_2_1_Transform FTransform
+---@field RigVMModel___GetTransform_2_1_CachedIndex TArray<FCachedRigElement>
+---@field RigVMModel___GetTransform_1_2_1_Transform FTransform
+---@field RigVMModel___GetTransform_1_2_1_CachedIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathQuaternionToRotator_Value FQuat
+---@field RigVMModel___MathFloatRemap_1_Value float
+---@field RigVMModel___SetCurveValue_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_1_Result float
+---@field RigVMModel___MathFloatMul_1_A float
+---@field RigVMModel___MathFloatRemap_Result float
+---@field RigVMModel___MathFloatRemap_Value float
+---@field RigVMModel___SetCurveValue_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_2_Result float
+---@field RigVMModel___MathFloatMul_2_A float
+---@field RigVMModel___MathFloatRemap_2_Result float
+---@field RigVMModel___MathFloatRemap_2_Value float
+---@field RigVMModel___SetCurveValue_2_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_1_1_Result float
+---@field RigVMModel___MathFloatMul_1_1_A float
+---@field RigVMModel___MathFloatRemap_2_3_Result float
+---@field RigVMModel___MathFloatRemap_2_3_Value float
+---@field RigVMModel___SetCurveValue_1_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_2_1_Result float
+---@field RigVMModel___MathFloatMul_2_1_A float
+---@field RigVMModel___MathFloatRemap_2_4_Result float
+---@field RigVMModel___MathFloatRemap_2_4_Value float
+---@field RigVMModel___SetCurveValue_2_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_1_1_1_Result float
+---@field RigVMModel___MathFloatMul_1_1_1_A float
+---@field RigVMModel___MathFloatRemap_2_3_1_Result float
+---@field RigVMModel___MathFloatRemap_2_3_1_Value float
+---@field RigVMModel___SetCurveValue_1_1_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_3_Result float
+---@field RigVMModel___MathFloatMul_3_A float
+---@field RigVMModel___MathFloatRemap_1_1_Result float
+---@field RigVMModel___MathQuaternionToRotator_3_Result FRotator
+---@field RigVMModel___MathTransformMakeRelative_2_Local FTransform
+---@field RigVMModel___GetTransform_2_Transform FTransform
+---@field RigVMModel___GetTransform_2_CachedIndex TArray<FCachedRigElement>
+---@field RigVMModel___GetTransform_1_2_Transform FTransform
+---@field RigVMModel___GetTransform_1_2_CachedIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathQuaternionToRotator_3_Value FQuat
+---@field RigVMModel___MathFloatRemap_1_1_Value float
+---@field RigVMModel___SetCurveValue_1_2_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_1_2_Result float
+---@field RigVMModel___MathFloatMul_1_2_A float
+---@field RigVMModel___MathFloatRemap_5_Result float
+---@field RigVMModel___MathFloatRemap_5_Value float
+---@field RigVMModel___SetCurveValue_3_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_3_1_Result float
+---@field RigVMModel___MathFloatMul_3_1_A float
+---@field RigVMModel___MathFloatRemap_2_2_Result float
+---@field RigVMModel___MathFloatRemap_2_2_Value float
+---@field RigVMModel___SetCurveValue_2_2_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_1_2_1_Result float
+---@field RigVMModel___MathFloatMul_1_2_1_A float
+---@field RigVMModel___MathFloatRemap_2_3_2_Result float
+---@field RigVMModel___MathFloatRemap_2_3_2_Value float
+---@field RigVMModel___SetCurveValue_1_1_2_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_3_1_1_Result float
+---@field RigVMModel___MathFloatMul_3_1_1_A float
+---@field RigVMModel___MathFloatRemap_2_4_1_Result float
+---@field RigVMModel___MathFloatRemap_2_4_1_Value float
+---@field RigVMModel___SetCurveValue_2_1_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_1_2_1_1_Result float
+---@field RigVMModel___MathFloatMul_1_2_1_1_A float
+---@field RigVMModel___MathFloatRemap_2_3_1_1_Result float
+---@field RigVMModel___MathFloatRemap_2_3_1_1_Value float
+---@field RigVMModel___SetCurveValue_1_1_1_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_3_2_Result float
+---@field RigVMModel___MathFloatMul_3_2_A float
+---@field RigVMModel___MathFloatRemap_1_1_2_Result float
+---@field RigVMModel___MathQuaternionToRotator_3_1_Result FRotator
+---@field RigVMModel___MathTransformMakeRelative_2_1_Local FTransform
+---@field RigVMModel___GetTransform_Transform FTransform
+---@field RigVMModel___GetTransform_CachedIndex TArray<FCachedRigElement>
+---@field RigVMModel___GetTransform_1_Transform FTransform
+---@field RigVMModel___GetTransform_1_CachedIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathQuaternionToRotator_3_1_Value FQuat
+---@field RigVMModel___MathFloatRemap_1_1_2_Value float
+---@field RigVMModel___SetCurveValue_1_2_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_1_2_2_Result float
+---@field RigVMModel___MathFloatMul_1_2_2_A float
+---@field RigVMModel___MathFloatRemap_5_1_Result float
+---@field RigVMModel___MathFloatRemap_5_1_Value float
+---@field RigVMModel___SetCurveValue_3_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_3_2_1_Result float
+---@field RigVMModel___MathFloatMul_3_2_1_A float
+---@field RigVMModel___MathFloatRemap_2_2_1_Result float
+---@field RigVMModel___MathFloatRemap_2_2_1_Value float
+---@field RigVMModel___SetCurveValue_2_2_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_1_2_2_1_Result float
+---@field RigVMModel___MathFloatMul_1_2_2_1_A float
+---@field RigVMModel___MathFloatRemap_2_3_2_1_Result float
+---@field RigVMModel___MathFloatRemap_2_3_2_1_Value float
+---@field RigVMModel___SetCurveValue_1_1_2_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_3_2_1_1_Result float
+---@field RigVMModel___MathFloatMul_3_2_1_1_A float
+---@field RigVMModel___MathFloatRemap_2_4_1_1_Result float
+---@field RigVMModel___MathFloatRemap_2_4_1_1_Value float
+---@field RigVMModel___SetCurveValue_2_1_1_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___MathFloatMul_1_2_2_1_1_Result float
+---@field RigVMModel___MathFloatMul_1_2_2_1_1_A float
+---@field RigVMModel___MathFloatRemap_2_3_1_1_1_Result float
+---@field RigVMModel___MathFloatRemap_2_3_1_1_1_Value float
+---@field RigVMModel___SetCurveValue_1_1_1_1_1_CachedCurveIndex TArray<FCachedRigElement>
+---@field RigVMModel___RigLogic_Data TArray<FRigUnit_RigLogic_Data>
+---@field RigVMModel___RigLogic_bIsInitialized TArray<boolean>
+local URigVMMemory_Work = {}
+
+
+

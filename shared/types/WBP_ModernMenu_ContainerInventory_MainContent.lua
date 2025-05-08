@@ -1,0 +1,93 @@
+---@meta
+
+---@class UWBP_ModernMenu_ContainerInventory_MainContent_C : UVAltarWidget
+---@field UberGraphFrame FPointerToUberGraphFrame
+---@field CategorySwitch UWidgetAnimation
+---@field inv_cont_filter UWBP_OriginalMenu_Inventory_Filter_C
+---@field inv_cont_filter_spacer USpacer
+---@field inv_cont_listview UWBP_OriginalMenu_InventoryListView_C
+---@field inv_cont_listview_switcher UWidgetSwitcher
+---@field inv_cont_spell_listview UWBP_ModernMenu_SpellPurchaseListView_C
+---@field inv_cont_title UWBP_AltarTextBlock_C
+---@field RetainerBox_Listview UAnimatableRetainerBox
+---@field WBP_List_EmptyLabel UWBP_List_EmptyLabel_C
+---@field ForcedFilterVisibility boolean
+---@field IsFilterFocused boolean
+---@field OnSortTypeUpdated FWBP_ModernMenu_ContainerInventory_MainContent_COnSortTypeUpdated
+---@field OnSortIsReversedUpdated FWBP_ModernMenu_ContainerInventory_MainContent_COnSortIsReversedUpdated
+---@field IsContainerMainContent boolean
+---@field IsSpellPurchaseMainContent boolean
+---@field DefaultSortType EOriginalInventoryMenuSortType
+---@field OnListViewItemClicked FWBP_ModernMenu_ContainerInventory_MainContent_COnListViewItemClicked
+---@field OnListViewUpdated FWBP_ModernMenu_ContainerInventory_MainContent_COnListViewUpdated
+---@field OnListViewItemHovered FWBP_ModernMenu_ContainerInventory_MainContent_COnListViewItemHovered
+---@field OnMouseHoverListViewChanged FWBP_ModernMenu_ContainerInventory_MainContent_COnMouseHoverListViewChanged
+local UWBP_ModernMenu_ContainerInventory_MainContent_C = {}
+
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:InitContainerType() end
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:NavigateToFirstListViewItem() end
+---@param Items TArray<FLegacySpellPurchaseMenuItemProperties>
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:UpdateSpellListViewContent(Items) end
+---@param Items TArray<FOriginalInventoryMenuItemProperties>
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:UpdateListViewContent(Items) end
+---@param CurrentItem UObject
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:GetCurrentItem(CurrentItem) end
+---@param ListView UVNavigableListView
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:GetActiveListView(ListView) end
+---@param Page ELegacyInventoryMenuPage
+---@param CurrentSortType EOriginalInventoryMenuSortType
+---@param NewSortType EOriginalInventoryMenuSortType
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:UpdateFiltersToDisplay(Page, CurrentSortType, NewSortType) end
+---@return UWidget
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:BP_GetDesiredFocusTarget() end
+---@param InIsFilterFocused boolean
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:UpdateFilterFocus(InIsFilterFocused) end
+---@param Page ELegacyInventoryMenuPage
+---@param EnabledFilterEnums TArray<EOriginalInventoryMenuSortType>
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:GetEnabledFilterEnumsForGivenPage(Page, EnabledFilterEnums) end
+---@param NewVisibility ESlateVisibility
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:SetAlphabeticalIconVisibility(NewVisibility) end
+---@param NewVisibility ESlateVisibility
+---@param bForce boolean
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:SetFilterVisibility(NewVisibility, bForce) end
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:ResetFilter() end
+---@param Title FText
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:SetTitle(Title) end
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:OnExitFilter() end
+---@param SelectedItem UObject
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:BndEvt__WBP_ModernMenu_ContainerInventory_MainContent_inv_cont_listview_K2Node_ComponentBoundEvent_2_OnItemClicked__DelegateSignature(SelectedItem) end
+---@param SortType EOriginalInventoryMenuSortType
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:BndEvt__WBP_ModernMenu_ContainerInventory_MainContent_inv_filter_K2Node_ComponentBoundEvent_0_OnSortTypeUpdated__DelegateSignature(SortType) end
+---@param bIsReversed boolean
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:BndEvt__WBP_ModernMenu_ContainerInventory_MainContent_inv_filter_K2Node_ComponentBoundEvent_1_OnIsReversedUpdated__DelegateSignature(bIsReversed) end
+---@param HoveredItem UObject
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:BndEvt__WBP_ModernMenu_ContainerInventory_MainContent_inv_cont_listview_K2Node_ComponentBoundEvent_5_OnItemHovered__DelegateSignature(HoveredItem) end
+---@param bNewInputType ECommonInputType
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:OnInputMethodChanged(bNewInputType) end
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:OnFocus() end
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:Construct() end
+---@param HoveredItem UObject
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:BndEvt__WBP_ModernMenu_ContainerInventory_MainContent_inv_cont_spell_listview_K2Node_ComponentBoundEvent_3_OnItemHovered__DelegateSignature(HoveredItem) end
+---@param SelectedItem UObject
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:BndEvt__WBP_ModernMenu_ContainerInventory_MainContent_inv_cont_spell_listview_K2Node_ComponentBoundEvent_4_OnItemClicked__DelegateSignature(SelectedItem) end
+---@param NewParam ESlateVisibility
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:BndEvt__WBP_ModernMenu_ContainerInventory_MainContent_inv_cont_listview_K2Node_ComponentBoundEvent_6_OnScrollBarVisibilityChanged__DelegateSignature(NewParam) end
+---@param IsHovered boolean
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:BndEvt__WBP_ModernMenu_ContainerInventory_MainContent_inv_cont_listview_K2Node_ComponentBoundEvent_8_OnMouseHoverListViewChanged__DelegateSignature(IsHovered) end
+---@param IsEmpty boolean
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:OnListViewUpdatedEvent(IsEmpty) end
+---@param EntryPoint int32
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:ExecuteUbergraph_WBP_ModernMenu_ContainerInventory_MainContent(EntryPoint) end
+---@param IsHovered boolean
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:OnMouseHoverListViewChanged__DelegateSignature(IsHovered) end
+---@param Item UObject
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:OnListViewItemHovered__DelegateSignature(Item) end
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:OnListViewUpdated__DelegateSignature() end
+---@param Item UObject
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:OnListViewItemClicked__DelegateSignature(Item) end
+---@param IsReversed boolean
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:OnSortIsReversedUpdated__DelegateSignature(IsReversed) end
+---@param SortType EOriginalInventoryMenuSortType
+function UWBP_ModernMenu_ContainerInventory_MainContent_C:OnSortTypeUpdated__DelegateSignature(SortType) end
+
+

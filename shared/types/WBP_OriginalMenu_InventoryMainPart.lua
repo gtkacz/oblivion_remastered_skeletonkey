@@ -1,0 +1,86 @@
+---@meta
+
+---@class UWBP_OriginalMenu_InventoryMainPart_C : UVAltarWidget
+---@field UberGraphFrame FPointerToUberGraphFrame
+---@field VInventoryMenuViewModel UVInventoryMenuViewModel
+---@field VHUDMainViewModel UVHUDMainViewModel
+---@field inv_armor UWBP_Original_ImageAndText_C
+---@field inv_mainContent UWBP_ModernMenu_ContainerInventory_MainContent_C
+---@field inv_money UWBP_Original_ImageAndText_C
+---@field inv_statusbar_fatigue UWBP_ModernHud_Fatigue_C
+---@field inv_statusbar_health UWBP_ModernHud_Health_C
+---@field inv_statusbar_magicka UWBP_ModernHud_Magicka_C
+---@field inv_tabs UWBP_OriginalMenu_InventoryTabs_C
+---@field inv_weight UWBP_Original_ImageAndText_C
+---@field PageTitle TMap<ELegacyInventoryMenuPage, FText>
+---@field OnItemHovered FWBP_OriginalMenu_InventoryMainPart_COnItemHovered
+---@field CurrentClickedItem UVOriginalInventoryMenuItem
+---@field DefaultSortType EOriginalInventoryMenuSortType
+---@field FilterColumnSize double
+---@field IsPlayerMenuClosing boolean
+local UWBP_OriginalMenu_InventoryMainPart_C = {}
+
+---@param Object UObject
+function UWBP_OriginalMenu_InventoryMainPart_C:OnItemClicked(Object) end
+function UWBP_OriginalMenu_InventoryMainPart_C:DropAllItem() end
+function UWBP_OriginalMenu_InventoryMainPart_C:DropItem() end
+function UWBP_OriginalMenu_InventoryMainPart_C:FocusListFirstItem() end
+---@param IsFilterFocused boolean
+function UWBP_OriginalMenu_InventoryMainPart_C:GetIsFilterFocused(IsFilterFocused) end
+---@param Filter UWBP_OriginalMenu_Inventory_Filter_C
+function UWBP_OriginalMenu_InventoryMainPart_C:GetFilter(Filter) end
+---@param NewParam UWBP_OriginalMenu_InventoryListView_C
+UWBP_OriginalMenu_InventoryMainPart_C['Get Item List View'] = function(self, NewParam) end
+---@param Page ELegacyInventoryMenuPage
+---@param DisabledFilterEnums TArray<EOriginalInventoryMenuSortType>
+function UWBP_OriginalMenu_InventoryMainPart_C:GetDisabledFilterEnumsForGivenPage(Page, DisabledFilterEnums) end
+---@param IsReversed boolean
+function UWBP_OriginalMenu_InventoryMainPart_C:OnSortIsReversedUpdated(IsReversed) end
+---@param SortType EOriginalInventoryMenuSortType
+function UWBP_OriginalMenu_InventoryMainPart_C:OnSortTypeUpdated(SortType) end
+function UWBP_OriginalMenu_InventoryMainPart_C:ToggleSorting() end
+---@param NewPage ELegacyInventoryMenuPage
+function UWBP_OriginalMenu_InventoryMainPart_C:ChangePage(NewPage) end
+---@return UWidget
+function UWBP_OriginalMenu_InventoryMainPart_C:BP_GetDesiredFocusTarget() end
+---@param Page ELegacyInventoryMenuPage
+function UWBP_OriginalMenu_InventoryMainPart_C:SetPageTitle(Page) end
+---@param Page ELegacyInventoryMenuPage
+function UWBP_OriginalMenu_InventoryMainPart_C:SetSelectedTab(Page) end
+---@param NewInfo FLegacyInventoryMenuExtraData
+function UWBP_OriginalMenu_InventoryMainPart_C:UpdatePlayerInfo(NewInfo) end
+function UWBP_OriginalMenu_InventoryMainPart_C:BndEvt__WBP_OriginalMenu_InventoryMainPart_WBP_Original_Tabs_K2Node_ComponentBoundEvent_0_OnTab1Clicked__DelegateSignature() end
+function UWBP_OriginalMenu_InventoryMainPart_C:BndEvt__WBP_OriginalMenu_InventoryMainPart_WBP_Original_Tabs_K2Node_ComponentBoundEvent_1_OnTab2Clicked__DelegateSignature() end
+function UWBP_OriginalMenu_InventoryMainPart_C:BndEvt__WBP_OriginalMenu_InventoryMainPart_WBP_Original_Tabs_K2Node_ComponentBoundEvent_2_OnTab3Clicked__DelegateSignature() end
+function UWBP_OriginalMenu_InventoryMainPart_C:BndEvt__WBP_OriginalMenu_InventoryMainPart_WBP_Original_Tabs_K2Node_ComponentBoundEvent_3_OnTab4Clicked__DelegateSignature() end
+function UWBP_OriginalMenu_InventoryMainPart_C:BndEvt__WBP_OriginalMenu_InventoryMainPart_WBP_Original_Tabs_K2Node_ComponentBoundEvent_4_OnTab5Clicked__DelegateSignature() end
+---@param NewParam double
+UWBP_OriginalMenu_InventoryMainPart_C['Update Health Bar Value'] = function(self, NewParam) end
+---@param NewParam double
+UWBP_OriginalMenu_InventoryMainPart_C['Update Magicka Bar Value'] = function(self, NewParam) end
+---@param NewParam double
+UWBP_OriginalMenu_InventoryMainPart_C['Update Fatigue Bar Value'] = function(self, NewParam) end
+function UWBP_OriginalMenu_InventoryMainPart_C:OnFocus() end
+function UWBP_OriginalMenu_InventoryMainPart_C:Construct() end
+function UWBP_OriginalMenu_InventoryMainPart_C:OnInteractWithItem() end
+---@param Page ELegacyInventoryMenuPage
+function UWBP_OriginalMenu_InventoryMainPart_C:UpdateCurrentPage(Page) end
+---@param Item UObject
+function UWBP_OriginalMenu_InventoryMainPart_C:BndEvt__WBP_OriginalMenu_InventoryMainPart_WBP_ModernMenu_ContainerInventory_MainContent_K2Node_ComponentBoundEvent_9_OnListViewItemClicked__DelegateSignature(Item) end
+function UWBP_OriginalMenu_InventoryMainPart_C:BndEvt__WBP_OriginalMenu_InventoryMainPart_inv_mainContent_K2Node_ComponentBoundEvent_10_OnListViewUpdated__DelegateSignature() end
+---@param Item UObject
+function UWBP_OriginalMenu_InventoryMainPart_C:BndEvt__WBP_OriginalMenu_InventoryMainPart_inv_mainContent_K2Node_ComponentBoundEvent_11_OnListViewItemHovered__DelegateSignature(Item) end
+---@param SortType EOriginalInventoryMenuSortType
+function UWBP_OriginalMenu_InventoryMainPart_C:BndEvt__WBP_OriginalMenu_InventoryMainPart_inv_mainContent_K2Node_ComponentBoundEvent_12_OnSortTypeUpdated__DelegateSignature(SortType) end
+---@param IsReversed boolean
+function UWBP_OriginalMenu_InventoryMainPart_C:BndEvt__WBP_OriginalMenu_InventoryMainPart_inv_mainContent_K2Node_ComponentBoundEvent_13_OnSortIsReversedUpdated__DelegateSignature(IsReversed) end
+---@param Items TArray<FOriginalInventoryMenuItemProperties>
+function UWBP_OriginalMenu_InventoryMainPart_C:UpdateListViewItems(Items) end
+---@param IsHovered boolean
+function UWBP_OriginalMenu_InventoryMainPart_C:BndEvt__WBP_OriginalMenu_InventoryMainPart_inv_mainContent_K2Node_ComponentBoundEvent_6_OnMouseHoverListViewChanged__DelegateSignature(IsHovered) end
+---@param EntryPoint int32
+function UWBP_OriginalMenu_InventoryMainPart_C:ExecuteUbergraph_WBP_OriginalMenu_InventoryMainPart(EntryPoint) end
+---@param NewItem UVOriginalInventoryMenuItem
+function UWBP_OriginalMenu_InventoryMainPart_C:OnItemHovered__DelegateSignature(NewItem) end
+
+

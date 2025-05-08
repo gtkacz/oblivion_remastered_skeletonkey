@@ -1,0 +1,45 @@
+---@meta
+
+---@class UWBP_ModernMenu_MagicTabs_C : UCommonUserWidget
+---@field UberGraphFrame FPointerToUberGraphFrame
+---@field magic_tabs_ActiveEffects UWBP_ModernPrefab_InvisibleButton_C
+---@field magic_tabs_All UWBP_ModernPrefab_InvisibleButton_C
+---@field magic_tabs_Self UWBP_ModernPrefab_InvisibleButton_C
+---@field magic_tabs_Target UWBP_ModernPrefab_InvisibleButton_C
+---@field magic_tabs_Touch UWBP_ModernPrefab_InvisibleButton_C
+---@field Tab_1 UWBP_OriginalImageTile_C
+---@field Tab_2 UWBP_OriginalImageTile_C
+---@field Tab_3 UWBP_OriginalImageTile_C
+---@field Tab_4 UWBP_OriginalImageTile_C
+---@field Tab_5 UWBP_OriginalImageTile_C
+---@field TabButton_Left UWBP_ModernPrefab_ControllerInputHint_C
+---@field TabButton_Right UWBP_ModernPrefab_ControllerInputHint_C
+---@field tabs_switcher UWidgetSwitcher
+---@field OnActiveTabClicked FWBP_ModernMenu_MagicTabs_COnActiveTabClicked
+---@field OnTargetTabClicked FWBP_ModernMenu_MagicTabs_COnTargetTabClicked
+---@field OnTouchTabClicked FWBP_ModernMenu_MagicTabs_COnTouchTabClicked
+---@field OnSelfTabClicked FWBP_ModernMenu_MagicTabs_COnSelfTabClicked
+---@field OnAllTabClicked FWBP_ModernMenu_MagicTabs_COnAllTabClicked
+local UWBP_ModernMenu_MagicTabs_C = {}
+
+---@param Page ELegacyMagicMenuPage
+UWBP_ModernMenu_MagicTabs_C['Set Active Tab'] = function(self, Page) end
+---@param Button UCommonButtonBase
+function UWBP_ModernMenu_MagicTabs_C:BndEvt__WBP_ModernMenu_MagicTabs_magic_tabs_ActiveEffects_K2Node_ComponentBoundEvent_0_CommonButtonBaseClicked__DelegateSignature(Button) end
+---@param Button UCommonButtonBase
+function UWBP_ModernMenu_MagicTabs_C:BndEvt__WBP_ModernMenu_MagicTabs_magic_tabs_Target_K2Node_ComponentBoundEvent_1_CommonButtonBaseClicked__DelegateSignature(Button) end
+---@param Button UCommonButtonBase
+function UWBP_ModernMenu_MagicTabs_C:BndEvt__WBP_ModernMenu_MagicTabs_magic_tabs_Touch_K2Node_ComponentBoundEvent_2_CommonButtonBaseClicked__DelegateSignature(Button) end
+---@param Button UCommonButtonBase
+function UWBP_ModernMenu_MagicTabs_C:BndEvt__WBP_ModernMenu_MagicTabs_magic_tabs_Self_K2Node_ComponentBoundEvent_8_CommonButtonBaseClicked__DelegateSignature(Button) end
+---@param Button UCommonButtonBase
+function UWBP_ModernMenu_MagicTabs_C:BndEvt__WBP_ModernMenu_MagicTabs_magic_tabs_All_K2Node_ComponentBoundEvent_9_CommonButtonBaseClicked__DelegateSignature(Button) end
+---@param EntryPoint int32
+function UWBP_ModernMenu_MagicTabs_C:ExecuteUbergraph_WBP_ModernMenu_MagicTabs(EntryPoint) end
+function UWBP_ModernMenu_MagicTabs_C:OnAllTabClicked__DelegateSignature() end
+function UWBP_ModernMenu_MagicTabs_C:OnSelfTabClicked__DelegateSignature() end
+function UWBP_ModernMenu_MagicTabs_C:OnTouchTabClicked__DelegateSignature() end
+function UWBP_ModernMenu_MagicTabs_C:OnTargetTabClicked__DelegateSignature() end
+function UWBP_ModernMenu_MagicTabs_C:OnActiveTabClicked__DelegateSignature() end
+
+

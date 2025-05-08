@@ -1,0 +1,108 @@
+---@enum EVDefaultSurfaceType
+local EVDefaultSurfaceType = {
+    Armor = 0,
+    Arrow = 1,
+    BodyFall = 2,
+    Bone = 3,
+    Chain = 4,
+    Cloth = 5,
+    Earth = 6,
+    Flesh = 7,
+    Fur = 8,
+    Glass = 9,
+    Metal = 10,
+    Organic = 11,
+    Stone = 12,
+    Wood = 13,
+    EVDefaultSurfaceType_MAX = 14,
+}
+
+---@enum EVEnvironmentFormID
+local EVEnvironmentFormID = {
+    ACTIVABLE = 18,
+    APPARATUS = 19,
+    ARMOR = 20,
+    BOOK = 21,
+    CLOTHING = 22,
+    CONTAINER = 23,
+    DOOR = 24,
+    INGREDIENT = 25,
+    LIGHT = 26,
+    MISC = 27,
+    STATIC = 28,
+    FLORA = 31,
+    FURNITURE = 32,
+    WEAPON = 33,
+    AMMUNITION = 34,
+    NPC = 35,
+    CREATURE = 36,
+    SOULGEM = 38,
+    KEY = 39,
+    ALCHEMY = 40,
+    SIGILSTONE = 42,
+    EVEnvironmentFormID_MAX = 43,
+}
+
+---@enum EVInputMappings
+local EVInputMappings = {
+    MOVE_FORWARD = 0,
+    MOVE_BACKWARD = 1,
+    MOVE_LEFT = 2,
+    MOVE_RIGHT = 3,
+    USE = 4,
+    ACTIVATE = 5,
+    BLOCK = 6,
+    CAST = 7,
+    RDYITEM = 8,
+    CROUCH = 9,
+    RUN = 10,
+    TOGGLERUN = 11,
+    AUTOMOVE = 12,
+    JUMP = 13,
+    TOGGLEPOV = 14,
+    MENUMODE = 15,
+    RESTMENU = 16,
+    QUICKMENU = 17,
+    QUICK1 = 18,
+    QUICK2 = 19,
+    QUICK3 = 20,
+    QUICK4 = 21,
+    QUICK5 = 22,
+    QUICK6 = 23,
+    QUICK7 = 24,
+    QUICK8 = 25,
+    QUICKSAVE = 26,
+    QUICKLOAD = 27,
+    GRAB = 28,
+    OPTIONSMENU = 29,
+    SHIFTKEY = 31,
+    STATSMENU = 32,
+    INVENTORYMENU = 33,
+    MAGICMENU = 34,
+    MAPMENU = 35,
+    QUESTMENU = 36,
+    HELPMENU = 37,
+    MOUSEAXIS = 38,
+    MOUSEWHEEL = 39,
+    NONE = 40,
+    EVInputMappings_MAX = 41,
+}
+
+---@enum EVPhysicsLoadingBehaviour
+local EVPhysicsLoadingBehaviour = {
+    IGNORE_LOAD = 0,
+    LOAD_POSE_FROM_SAVE = 1,
+    EVPhysicsLoadingBehaviour_MAX = 2,
+}
+
+---@enum EVPhysicsSimulationBehaviour
+local EVPhysicsSimulationBehaviour = {
+    ALWAYS = 0,
+    NEVER = 1,
+    AT_DEATH_OR_FALL = 2,
+    START_ON_ACTIVATE = 3,
+    STOP_ON_ACTIVATE = 4,
+    WHEN_UNEQUIPPED = 5,
+    EVPhysicsSimulationBehaviour_MAX = 6,
+}
+

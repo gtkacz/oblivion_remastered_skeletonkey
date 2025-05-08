@@ -1,0 +1,16 @@
+---@meta
+
+---@class FStruct_Torch
+---@field TorchPose_62_82536AAC49BF13EE6C948EA5EBBD678E UAnimSequenceBase
+---@field TorchPoseSneak_63_87907D764C79A613795ED8AD45AFEAF7 UAnimSequenceBase
+---@field TorchBlendSpace_53_15E4585C4C7D0C1A90B5F3A0AAAC5980 UBlendSpace
+---@field TorchSneakBlendSpace_55_84F7908D4B508BA0D965209F2E457AAF UBlendSpace
+---@field TorchArmBlendBone_40_85A2BB4E49802AE979A061A15C127794 FName
+---@field TorchHandBlendBone_41_1D05D9C8427A7142F93EE9A810FE36F8 FName
+---@field TorchBlendDepth_35_E610B3014047B45A6A7330933340B632 int32
+---@field TorchEquipBlendTime_42_80625F9B4C28F923E30CE2A98B1B2AA2 double
+---@field TorchCrouchBlendTime_45_16E58DAB4BBD95C1FCD5F4880E3C29D1 double
+local FStruct_Torch = {}
+
+
+

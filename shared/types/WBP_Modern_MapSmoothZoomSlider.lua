@@ -1,0 +1,41 @@
+---@meta
+
+---@class UWBP_Modern_MapSmoothZoomSlider_C : UVModern_MapZoomSliderSmooth
+---@field UberGraphFrame FPointerToUberGraphFrame
+---@field DecreaseButtonImage UWBP_OriginalImageTile_C
+---@field DecreaseInput UWBP_ModernPrefab_ControllerInputHint_C
+---@field HackHandle UWBP_OriginalImageTile_C
+---@field IncreaseButtonImage UWBP_OriginalImageTile_C
+---@field IncreaseInput UWBP_ModernPrefab_ControllerInputHint_C
+---@field LocalMapButton UButton
+---@field LocalMapDot UWBP_OriginalImageTile_C
+---@field OnMouseUsedDispatcherSmooth FWBP_Modern_MapSmoothZoomSlider_COnMouseUsedDispatcherSmooth
+---@field IsWorldMap boolean
+---@field IsMouseCapturing boolean
+---@field IsIncreasedButtonPressed boolean
+---@field OnClickLocalMapButton FWBP_Modern_MapSmoothZoomSlider_COnClickLocalMapButton
+local UWBP_Modern_MapSmoothZoomSlider_C = {}
+
+function UWBP_Modern_MapSmoothZoomSlider_C:SetHandleVisibilityOnly() end
+---@param IsWorld boolean
+function UWBP_Modern_MapSmoothZoomSlider_C:PostInit(IsWorld) end
+---@param IsWorldMap boolean
+function UWBP_Modern_MapSmoothZoomSlider_C:SetHandlePositionWhenChangingMap(IsWorldMap) end
+---@param NewInputType ECommonInputType
+UWBP_Modern_MapSmoothZoomSlider_C['On Input Method Changed'] = function(self, NewInputType) end
+---@return boolean
+function UWBP_Modern_MapSmoothZoomSlider_C:IsNavigable() end
+function UWBP_Modern_MapSmoothZoomSlider_C:BndEvt__WBP_Modern_MapSmoothZoomSlider_Slider_K2Node_ComponentBoundEvent_0_OnMouseCaptureBeginEvent__DelegateSignature() end
+function UWBP_Modern_MapSmoothZoomSlider_C:BndEvt__WBP_Modern_MapSmoothZoomSlider_IncreaseButton_K2Node_ComponentBoundEvent_1_OnButtonPressedEvent__DelegateSignature() end
+function UWBP_Modern_MapSmoothZoomSlider_C:BndEvt__WBP_Modern_MapSmoothZoomSlider_DecreaseButton_K2Node_ComponentBoundEvent_2_OnButtonPressedEvent__DelegateSignature() end
+function UWBP_Modern_MapSmoothZoomSlider_C:Construct() end
+function UWBP_Modern_MapSmoothZoomSlider_C:BndEvt__WBP_Modern_MapSmoothZoomSlider_Slider_K2Node_ComponentBoundEvent_3_OnMouseCaptureEndEvent__DelegateSignature() end
+function UWBP_Modern_MapSmoothZoomSlider_C:BndEvt__WBP_Modern_MapSmoothZoomSlider_LocalMapButton_K2Node_ComponentBoundEvent_4_OnButtonClickedEvent__DelegateSignature() end
+function UWBP_Modern_MapSmoothZoomSlider_C:BndEvt__WBP_Modern_MapSmoothZoomSlider_IncreaseButton_K2Node_ComponentBoundEvent_5_OnButtonReleasedEvent__DelegateSignature() end
+function UWBP_Modern_MapSmoothZoomSlider_C:BndEvt__WBP_Modern_MapSmoothZoomSlider_DecreaseButton_K2Node_ComponentBoundEvent_6_OnButtonReleasedEvent__DelegateSignature() end
+---@param EntryPoint int32
+function UWBP_Modern_MapSmoothZoomSlider_C:ExecuteUbergraph_WBP_Modern_MapSmoothZoomSlider(EntryPoint) end
+function UWBP_Modern_MapSmoothZoomSlider_C:OnClickLocalMapButton__DelegateSignature() end
+function UWBP_Modern_MapSmoothZoomSlider_C:OnMouseUsedDispatcherSmooth__DelegateSignature() end
+
+

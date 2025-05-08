@@ -1,0 +1,36 @@
+---@meta
+
+---@class UWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_C : UCommonUserWidget
+---@field UberGraphFrame FPointerToUberGraphFrame
+---@field VItemEffectsViewModel UVItemEffectsViewModel
+---@field inv_ingredient_effect1 UWBP_OriginalMenu_IngredientEffect_C
+---@field inv_ingredient_effect2 UWBP_OriginalMenu_IngredientEffect_C
+---@field inv_ingredient_effect3 UWBP_OriginalMenu_IngredientEffect_C
+---@field inv_ingredient_effect4 UWBP_OriginalMenu_IngredientEffect_C
+---@field inv_ingredient_seperator_1 UWBP_OriginalImageTile_C
+---@field inv_ingredient_seperator_2 UWBP_OriginalImageTile_C
+---@field inv_ingredient_seperator_3 UWBP_OriginalImageTile_C
+---@field inv_ingredient_seperator_4 UWBP_OriginalImageTile_C
+---@field inv_ingredient_seperator_5 UWBP_OriginalImageTile_C
+---@field OnEffectsUpdated FWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_COnEffectsUpdated
+---@field EffectsArray TArray<UWBP_OriginalMenu_IngredientEffect_C>
+---@field SeperatorsArray TArray<UWBP_OriginalImageTile_C>
+local UWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_C = {}
+
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_C:HideAllEffects() end
+---@param Target UWBP_Original_ImageAndText_C
+---@param Icon UTexture2D
+---@param Text FText
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_C:SetEffect(Target, Icon, Text) end
+---@param NewEffects TArray<FOriginalInventoryMenuIngredientEffects>
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_C:UpdateEffects(NewEffects) end
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_C:MakeSeperatorsArray() end
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_C:MakeEffectsArray() end
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_C:MakeArraysIfNeeded() end
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_C:Construct() end
+---@param EntryPoint int32
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_C:ExecuteUbergraph_WBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects(EntryPoint) end
+---@param EffectsNb int32
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_IngredientEffects_C:OnEffectsUpdated__DelegateSignature(EffectsNb) end
+
+

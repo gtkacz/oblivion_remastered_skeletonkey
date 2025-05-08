@@ -1,0 +1,50 @@
+---@meta
+
+---@class UWBP_Modern_Menu_Player_Header_C : UVAltarWidget
+---@field UberGraphFrame FPointerToUberGraphFrame
+---@field character_tab UWBP_ModernPrefab_FocusButton_Header_C
+---@field codex_tab UWBP_ModernPrefab_FocusButton_Header_C
+---@field HorizontalBox UHorizontalBox
+---@field inventory_tab UWBP_ModernPrefab_FocusButton_Header_C
+---@field magic_tab UWBP_ModernPrefab_FocusButton_Header_C
+---@field map_tab UWBP_ModernPrefab_FocusButton_Header_C
+---@field quest_tab UWBP_ModernPrefab_FocusButton_Header_C
+---@field system_tab UWBP_ModernPrefab_FocusButton_Header_C
+---@field OnTabClick FWBP_Modern_Menu_Player_Header_COnTabClick
+---@field CurrentPage ELegacyPlayerMenuPage
+---@field CurrentTabButton UWBP_ModernPrefab_FocusButton_Header_C
+---@field IsHeaderEnable boolean
+local UWBP_Modern_Menu_Player_Header_C = {}
+
+function UWBP_Modern_Menu_Player_Header_C:Unbinding() end
+function UWBP_Modern_Menu_Player_Header_C:Binding() end
+function UWBP_Modern_Menu_Player_Header_C:Reset() end
+---@param IsEnable boolean
+function UWBP_Modern_Menu_Player_Header_C:SetHeaderState(IsEnable) end
+---@param NewPage ELegacyPlayerMenuPage
+function UWBP_Modern_Menu_Player_Header_C:SelectPage(NewPage) end
+---@param Button UCommonButtonBase
+function UWBP_Modern_Menu_Player_Header_C:BndEvt__WBP_Modern_Menu_Player_Header_character_tab_K2Node_ComponentBoundEvent_0_CommonButtonBaseClicked__DelegateSignature(Button) end
+---@param Button UCommonButtonBase
+function UWBP_Modern_Menu_Player_Header_C:BndEvt__WBP_Modern_Menu_Player_Header_inventory_tab_K2Node_ComponentBoundEvent_1_CommonButtonBaseClicked__DelegateSignature(Button) end
+---@param Button UCommonButtonBase
+function UWBP_Modern_Menu_Player_Header_C:BndEvt__WBP_Modern_Menu_Player_Header_magic_tab_K2Node_ComponentBoundEvent_2_CommonButtonBaseClicked__DelegateSignature(Button) end
+---@param Button UCommonButtonBase
+function UWBP_Modern_Menu_Player_Header_C:BndEvt__WBP_Modern_Menu_Player_Header_map_tab_K2Node_ComponentBoundEvent_3_CommonButtonBaseClicked__DelegateSignature(Button) end
+---@param Button UCommonButtonBase
+function UWBP_Modern_Menu_Player_Header_C:BndEvt__WBP_Modern_Menu_Player_Header_quest_tab_K2Node_ComponentBoundEvent_4_CommonButtonBaseClicked__DelegateSignature(Button) end
+---@param Button UCommonButtonBase
+function UWBP_Modern_Menu_Player_Header_C:BndEvt__WBP_Modern_Menu_Player_Header_codex_tab_K2Node_ComponentBoundEvent_6_CommonButtonBaseClicked__DelegateSignature(Button) end
+---@param Button UCommonButtonBase
+function UWBP_Modern_Menu_Player_Header_C:BndEvt__WBP_Modern_Menu_Player_Header_system_tab_K2Node_ComponentBoundEvent_5_CommonButtonBaseClicked__DelegateSignature(Button) end
+function UWBP_Modern_Menu_Player_Header_C:Construct() end
+function UWBP_Modern_Menu_Player_Header_C:Destruct() end
+---@param Target UVNavigableInputKeySelector
+---@param NewState boolean
+function UWBP_Modern_Menu_Player_Header_C:DisableInteractionOnListenningForRebind(Target, NewState) end
+---@param EntryPoint int32
+function UWBP_Modern_Menu_Player_Header_C:ExecuteUbergraph_WBP_Modern_Menu_Player_Header(EntryPoint) end
+---@param NewPage ELegacyPlayerMenuPage
+function UWBP_Modern_Menu_Player_Header_C:OnTabClick__DelegateSignature(NewPage) end
+
+

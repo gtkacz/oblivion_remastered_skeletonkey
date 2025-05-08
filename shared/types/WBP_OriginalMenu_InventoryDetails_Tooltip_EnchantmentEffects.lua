@@ -1,0 +1,35 @@
+---@meta
+
+---@class UWBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects_C : UCommonUserWidget
+---@field UberGraphFrame FPointerToUberGraphFrame
+---@field VAddedEffectsListViewModel UVAddedEffectsListViewModel
+---@field inv_enchantment_dots UWBP_AltarTextBlock_C
+---@field inv_enchantment_effect_1 UWBP_ModernMenu_AddedEffects_Small_C
+---@field inv_enchantment_effect_2 UWBP_ModernMenu_AddedEffects_Small_C
+---@field inv_enchantment_effect_3 UWBP_ModernMenu_AddedEffects_Small_C
+---@field inv_enchantment_effect_4 UWBP_ModernMenu_AddedEffects_Small_C
+---@field inv_enchantment_seperator_1 UWBP_OriginalImageTile_C
+---@field inv_enchantment_seperator_2 UWBP_OriginalImageTile_C
+---@field inv_enchantment_seperator_3 UWBP_OriginalImageTile_C
+---@field inv_enchantment_seperator_4 UWBP_OriginalImageTile_C
+---@field inv_enchantment_seperator_5 UWBP_OriginalImageTile_C
+---@field OnEffectsUpdated FWBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects_COnEffectsUpdated
+---@field EffectsArray TArray<UWBP_ModernMenu_AddedEffects_Small_C>
+---@field SeperatorsArray TArray<UWBP_OriginalImageTile_C>
+---@field AreListsInitialized boolean
+local UWBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects_C = {}
+
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects_C:HideAllEffects() end
+---@param NewItems TArray<FModernEffectItemData>
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects_C:UpdateEffects(NewItems) end
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects_C:MakeSeperatorsArray() end
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects_C:MakeEffectsArray() end
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects_C:TryToInitLists() end
+---@param NewItems TArray<FModernEffectItemData>
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects_C:UpdateListView(NewItems) end
+---@param EntryPoint int32
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects_C:ExecuteUbergraph_WBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects(EntryPoint) end
+---@param EffectsNb int32
+function UWBP_OriginalMenu_InventoryDetails_Tooltip_EnchantmentEffects_C:OnEffectsUpdated__DelegateSignature(EffectsNb) end
+
+
