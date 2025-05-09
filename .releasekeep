@@ -1,2 +1,3 @@
 enabled.txt
-scripts/*
+scripts/main.lua
+scripts/OBRConsole.lua
